@@ -1,1 +1,35 @@
-{"name": "ESP32_TEST factory.json", "version": "v1.0.4", "new_install_prompt_erase": true, "builds": [{"chipFamily": "ESP32", "parts": [{"path": "/this-web-flasher/bins/v1.0.4/ESP32_TEST/web_factory.bin", "offset": 0}]}, {"chipFamily": "ESP32-C2", "parts": [{"path": "/this-web-flasher/bins/v1.0.4/ESP32_TEST/web_factory.bin", "offset": 0}]}, {"chipFamily": "ESP32-C3", "parts": [{"path": "/this-web-flasher/bins/v1.0.4/ESP32_TEST/web_factory.bin", "offset": 0}]}, {"chipFamily": "ESP32-C6", "parts": [{"path": "/this-web-flasher/bins/v1.0.4/ESP32_TEST/web_factory.bin", "offset": 0}]}, {"chipFamily": "ESP32-S2", "parts": [{"path": "/this-web-flasher/bins/v1.0.4/ESP32_TEST/web_factory.bin", "offset": 0}]}, {"chipFamily": "ESP32-S3", "parts": [{"path": "/this-web-flasher/bins/v1.0.4/ESP32_TEST/web_factory.bin", "offset": 0}]}, {"chipFamily": "ESP8266", "parts": [{"path": "/this-web-flasher/bins/v1.0.4/ESP32_TEST/web_factory.bin", "offset": 0}]}]}
+{
+    "name": "esp32c3_DIY_1W_LoRa factory.json", 
+    "version": "v1.0.3", 
+    "new_install_prompt_erase": true, 
+    "builds": [
+                {
+                    "chipFamily": "ESP32",
+                    "parts": [{"path": "/lora-igate-web-flasher/bins/V1.0.3/esp32c3_DIY_1W_LoRa/web_factory.bin","offset": 0}]
+                },
+                {
+                    "chipFamily": "ESP32-C2", 
+                    "parts": [{"path": "/lora-igate-web-flasher/bins/V1.0.3/esp32c3_DIY_1W_LoRa/web_factory.bin","offset": 0}]
+                },
+                {
+                    "chipFamily": "ESP32-C3",
+                    "parts": [{"path": "/lora-igate-web-flasher/bins/V1.0.3/esp32c3_DIY_1W_LoRa/web_factory.bin","offset": 0}]
+                },
+                {
+                    "chipFamily": "ESP32-C6",
+                    "parts": [{"path": "/lora-igate-web-flasher/bins/V1.0.3/esp32c3_DIY_1W_LoRa/web_factory.bin","offset": 0}]
+                },
+                {
+                    "chipFamily": "ESP32-S2",
+                    "parts": [{"path": "/lora-igate-web-flasher/bins/V1.0.3/esp32c3_DIY_1W_LoRa/web_factory.bin","offset": 0}]
+                },
+                {
+                    "chipFamily": "ESP32-S3",
+                    "parts": [{"path": "/lora-igate-web-flasher/bins/V1.0.3/esp32c3_DIY_1W_LoRa/web_factory.bin","offset": 0}]
+                },
+                {
+                    "chipFamily": "ESP8266",
+                    "parts": [{"path": "/lora-igate-web-flasher/bins/V1.0.3/esp32c3_DIY_1W_LoRa/web_factory.bin", "offset": 0}]
+                }
+    ]
+}
