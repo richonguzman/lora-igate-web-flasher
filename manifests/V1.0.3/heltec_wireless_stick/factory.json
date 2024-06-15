@@ -1,6 +1,6 @@
 {
     "name": "heltec_wireless_stick factory.json", 
-    "version": "v1.0.3", 
+    "version": "V1.0.3", 
     "new_install_prompt_erase": true, 
     "builds": [
                 {

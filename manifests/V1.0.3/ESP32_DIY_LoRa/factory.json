@@ -1,6 +1,6 @@
 {
     "name": "ESP32_DIY_LoRa factory.json", 
-    "version": "v1.0.3", 
+    "version": "V1.0.3", 
     "new_install_prompt_erase": true, 
     "builds": [
                 {
