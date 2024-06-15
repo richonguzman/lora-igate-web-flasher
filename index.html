@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://bootswatch.com/5/lux/bootstrap.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://bootswatch.com/_vendor/bootstrap-icons/font/bootstrap-icons.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://bootswatch.com/_vendor/prismjs/themes/prism-okaidia.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://bootswatch.com/_assets/css/custom.min.css"
+        />
+        <title>ESP32 Flasher | CA2RXU</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-sm-12">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h1 class="card-title">ESP32 Flasher</h1>
+                            <h3 class="card-title mt-4"><a href="/this-web-flasher/installer.html">To flash a specific firmware? Click here</a></h3>
+                            <p class="card-text">
+                                <ol style="text-align:left">
+                                    <li>Connect the ESP32 device to your computer using USB</li>
+                                    <li>Select the firmware suitable for your device</li>
+                                    <li>Press <strong>Flash</strong> and select the correct port</li>
+                                </ol>
+                            </p>
+                            <span>Your firmware will be flashed at 0x00</span>
+                            <div class="mb-4">
+                                <button class="btn btn-primary mt-4" id="select">Select firmware</button>
+                                <esp-web-install-button manifest="/manifest.json">
+                                    <button slot="activate" class="btn btn-success mt-4">Flash</button>
+                                    <div class="alert alert-dismissible alert-danger mt-4" slot="unsupported">
+                                        Your browser does not support installing things on ESP devices. Use Google Chrome or Microsoft Edge.
+                                    </div>
+                                </esp-web-install-button>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">&copy; 2024 CA2RXU &minus; Made in Chile with &hearts; <br><img src="./img/esp32.jpg" width="256px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <script
+            type="module"
+            src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"
+        ></script> -->
+        <script
+        type="module"
+        src="https://unpkg.com/tasmota-esp-web-tools@8.1.4/dist/web/install-button.js?module"
+      ></script>
+        <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script
+            src="https://bootswatch.com/_vendor/prismjs/prism.js"
+            data-manual
+        ></script>
+        <script>
+            const virtual_manifest = {"name": "","version": "","new_install_prompt_erase": true,"builds": [
+            { "chipFamily": "ESP32","parts": [{ "path": "", "offset": 0 }]},
+            { "chipFamily": "ESP32-C2","parts": [{ "path": "", "offset": 0 }]},
+            { "chipFamily": "ESP32-C3","parts": [{ "path": "", "offset": 0 }]},
+            { "chipFamily": "ESP32-C6","parts": [{ "path": "", "offset": 0 }]},
+            { "chipFamily": "ESP32-S2","parts": [{ "path": "", "offset": 0 }]},
+            { "chipFamily": "ESP32-S3","parts": [{ "path": "", "offset": 0 }]},
+            { "chipFamily": "ESP8266","parts": [{ "path": "", "offset": 0 }]}
+            ]};
+
+            function handleFiles(files) {
+                files = [...files];
+                console.log(files);
+
+                const button = document.querySelector("esp-web-install-button");
+                virtual_manifest.name = files[0].name;
+
+                button.manifest = JSON.stringify(virtual_manifest);
+                button.firmwareFile = files[0];
+            }
+
+
+            function openFileDialog(){
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = '.bin'
+
+                input.onchange = _ => handleFiles(input.files);
+
+                input.click();
+            }
+
+
+            document.getElementById('select').onclick = openFileDialog;
+
+            window.addEventListener("load", function(event) {
+                try{
+                    const button = document.querySelector("esp-web-install-button");
+                    button.overrides = {
+                        checkSameFirmware(manifest, improvInfo) {
+                            const manifestFirmware = manifest.name.toLowerCase();
+                            const deviceFirmware = improvInfo.firmware.toLowerCase();
+                            return manifestFirmware.includes(deviceFirmware);
+                        }
+                    };
+                }
+                catch(e){
+                    console.log(e);
+                }
+            },{ once: true });
+        </script>
+    </body>
+</html>
