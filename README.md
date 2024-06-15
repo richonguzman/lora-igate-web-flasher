@@ -1,4 +1,4 @@
-# this-web-flasher
+# LoRa iGate WebFlasher
 
 
-[# thisWebFlasher](https://richonguzman.github.io/this-web-flasher/ "# thisWebFlasher")
+[# thisWebFlasher](https://richonguzman.github.io/lora-igate-web-flasher/ "# LoRa iGate WebFlasher")
