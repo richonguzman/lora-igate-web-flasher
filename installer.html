@@ -22,7 +22,24 @@
         <title>CA2RXU LoRa iGate Firmware Flasher</title>
         <style>
             body {
-                background-color: #555555;
+                background-color: #212121; /* Dark mode background color */
+                color: #ffffff; /* Default text color for dark mode */
+            }
+            .card {
+                background-color: #2a2a2a; /* Dark gray background for card */
+                color: #ffffff; /* White text color for readability */
+            }
+            .card-footer {
+                background-color: #2a2a2a; /* Dark gray background for card footer */
+            }
+            .btn-success {
+                background-color: #4caf50; /* Green button for contrast */
+                border-color: #4caf50;
+            }
+            .alert-danger {
+                background-color: #ff5252; /* Red background for alert */
+                border-color: #ff5252;
+                color: #ffffff; /* White text color for alert */
             }
         </style>
     </head>
@@ -36,13 +53,6 @@
                             <h3 class="card-title">
                                 LoRa APRS iGate - Web Flasher
                             </h3>
-                            <!-- <div class="my-3">
-                                <label class="form-label">Mode</label>
-                                <select class="form-select" disabled="">
-                                    <option>Digipeater, IGate</option>
-                                    <option>Tracker</option>
-                                </select>
-                            </div> -->
                             <div class="mb-3">
                                 <label for="board" class="form-label"
                                     >Board <small>(environment)</small></label
