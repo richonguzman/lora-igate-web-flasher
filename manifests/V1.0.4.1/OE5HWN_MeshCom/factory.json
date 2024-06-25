@@ -1,0 +1,70 @@
+{
+    "name": "OE5HWN_MeshCom factory.json",
+    "version": "V1.0.4",
+    "new_install_prompt_erase": true,
+    "builds": [
+        {
+            "chipFamily": "ESP32",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V1.0.4/OE5HWN_MeshCom/web_factory.bin",
+                    "offset": 0
+                }
+            ]
+        },
+        {
+            "chipFamily": "ESP32-C2",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V1.0.4/OE5HWN_MeshCom/web_factory.bin",
+                    "offset": 0
+                }
+            ]
+        },
+        {
+            "chipFamily": "ESP32-C3",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V1.0.4/OE5HWN_MeshCom/web_factory.bin",
+                    "offset": 0
+                }
+            ]
+        },
+        {
+            "chipFamily": "ESP32-C6",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V1.0.4/OE5HWN_MeshCom/web_factory.bin",
+                    "offset": 0
+                }
+            ]
+        },
+        {
+            "chipFamily": "ESP32-S2",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V1.0.4/OE5HWN_MeshCom/web_factory.bin",
+                    "offset": 0
+                }
+            ]
+        },
+        {
+            "chipFamily": "ESP32-S3",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V1.0.4/OE5HWN_MeshCom/web_factory.bin",
+                    "offset": 0
+                }
+            ]
+        },
+        {
+            "chipFamily": "ESP8266",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V1.0.4/OE5HWN_MeshCom/web_factory.bin",
+                    "offset": 0
+                }
+            ]
+        }
+    ]
+}
