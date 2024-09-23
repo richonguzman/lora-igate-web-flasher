@@ -89,6 +89,7 @@
                                     <option>WEMOS_S2_MINI_DIY_LoRa</option>
                                     <option>OE5HWM_MeshCom</option>
                                     <option>ESP32_C3_OctopusLab_LoRa</option>
+                                    <option>RAK WisBlock 4631</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -179,6 +180,11 @@
                 const board = document.getElementById("board").value;
                 const type = document.getElementById("type").value;
 
+                if (board === "RAK WisBlock 4631") {
+                    window.location.href = "https://github.com/richonguzman/LoRa_APRS_Test";
+                    return;
+                }
+
                 const manifest =
                     "/lora-igate-web-flasher/manifests/" +
                     version +
@@ -193,9 +199,7 @@
                 console.log(manifest);
             }
 
-            document
-                .getElementById("version")
-                .addEventListener("change", reload);
+            document.getElementById("version").addEventListener("change", reload);
             document.getElementById("board").addEventListener("change", reload);
             document.getElementById("type").addEventListener("change", reload);
 
