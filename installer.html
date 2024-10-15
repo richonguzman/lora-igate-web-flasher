@@ -43,17 +43,20 @@
             }
             /* Hyperlink styles */
             a {
-                color: #1e90ff; /* Default link color (Dodger Blue) */
-                text-decoration: none; /* Remove underline */
+                color: #00FFFF; /* Cyan for unvisited links */
+                font-weight: bold;
             }
             a:hover {
-                color: #ff4500; /* Change color to orange when hovered */
+                color: #1E90FF; /* Dodger Blue for visited links */
+            }
+            a:hover, a:focus {
+                color: #FFD700; /* Gold for hover/active links */
             }
             a:visited {
                 color: #9370db; /* Change to a different color when visited (Medium Purple) */
             }
             a:active {
-                color: #ff0000; /* Change to red when the link is active */
+                color: #FF4500; /* Orange Red for pressed links */
             }
         </style>
     </head>
