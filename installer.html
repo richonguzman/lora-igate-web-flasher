@@ -80,6 +80,7 @@
                                     <option>ttgo-t-beam-v1_2_915</option>
                                     <option>ttgo-t-beam-v1_SX1268</option>
                                     <option>ttgo-t-beam-v1_2_SX1262</option>
+                                    <option>RAK_WisBlock_4631_Digirepeater</option>
                                     <option>heltec_wifi_lora_32_V3</option>
                                     <option>heltec_wireless_stick</option>
                                     <option>heltec_wireless_stick_lite_v3</option>
@@ -103,7 +104,6 @@
                                     <option>WEMOS_S2_MINI_DIY_LoRa</option>
                                     <option>OE5HWM_MeshCom</option>
                                     <option>ESP32_C3_OctopusLab_LoRa</option>
-                                    <option>RAK WisBlock 4631</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -194,8 +194,8 @@
                 const board = document.getElementById("board").value;
                 const type = document.getElementById("type").value;
 
-                if (board === "RAK WisBlock 4631") {
-                    window.location.href = "https://github.com/richonguzman/LoRa_APRS_Test";
+                if (board === "RAK_WisBlock_4631_Digirepeater") {
+                    window.location.href = "https://github.com/richonguzman/LoRa_APRS_NRF52840/LoRa_APRS_RAK4631_Digirepeater";
                     return;
                 }
 
