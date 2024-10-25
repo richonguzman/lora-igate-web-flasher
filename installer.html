@@ -72,43 +72,49 @@
                                     >Board <small>(environment)</small></label
                                 >
                                 <select id="board" class="form-select">
-                                    <optgroup label="ESP32 Based Boards">
-                                        <option value="ttgo-lora32-v21">LILYGO TTGO LoRa32 V2.1 or V1.6.1</option>
-                                        <option>ttgo-lora32-v21_915</option>
-                                        <option>ttgo-t-beam-v1</option>
-                                        <option>ttgo-t-beam-v1_915</option>
-                                        <option>ttgo-t-beam-v1_2</option>
-                                        <option>ttgo-t-beam-v1_2_915</option>
-                                        <option>ttgo-t-beam-v1_SX1268</option>
-                                        <option>ttgo-t-beam-v1_2_SX1262</option>
-                                        <option>heltec_wifi_lora_32_V3</option>
-                                        <option>heltec_wireless_stick</option>
-                                        <option>heltec_wireless_stick_lite_v3</option>
-                                        <option>heltec_wireless_stick_lite_v3_display</option>
-                                        <option>heltec_wireless_tracker</option>
-                                        <option>heltec-lora32-v2</option>
-                                        <option>heltec_ht-ct62</option>
-                                        <option>heltec_wireless_paper</option>
-                                        <option>ESP32_DIY_LoRa</option>
-                                        <option>ESP32_DIY_LoRa_915</option>
-                                        <option>ESP32_DIY_1W_LoRa</option>
-                                        <option>ESP32_DIY_1W_LoRa_915</option>
-                                        <option>ESP32_DIY_1W_LoRa_LLCC68</option>
-                                        <option>ESP32_DIY_1W_LoRa_Mesh_V1_2</option>
-                                        <option>ESP32_DIY_LoRa_A7670</option>
-                                        <option>ESP32_DIY_LoRa_A7670_915</option>
-                                        <option>esp32c3_DIY_1W_LoRa</option>
-                                        <option>esp32c3_DIY_1W_LoRa_915</option>
+                                    <optgroup label="LILYGO - TTGO">
+                                        <option value="ttgo-lora32-v21">LoRa32 V2.1 or V1.6.1</option>
+                                        <option value="ttgo-lora32-v21_915">LoRa32 V2.1 or V1.6.1 (915MHz)</option>
+                                        <option value="ttgo-t-beam-v1">T-Beam V1.0</option>
+                                        <option value="ttgo-t-beam-v1_915">T-Beam V1.0 (915MH)</option>
+                                        <option value="ttgo-t-beam-v1_2">T-Beam V1.2</option>
+                                        <option value="ttgo-t-beam-v1_2_915">T-Beam V1.2 (915MHz)</option>
+                                        <option value="ttgo-t-beam-v1_SX1268">T-Beam V1.0 SX1268</option>
+                                        <option value="ttgo-t-beam-v1_2_SX1262">T-Beam V1.2 SX1262</option>
+                                    </optgroup>
+                                    <optgroup label="HELTEC">
+                                        <option value="heltec_wifi_lora_32_V3">Heltec V3</option>
+                                        <option value="heltec_wireless_stick">Heltec Wireless Stick</option>
+                                        <option value="heltec_wireless_stick_lite_v3">Heltec Wireless Stick Lite V3</option>
+                                        <option value="heltec_wireless_stick_lite_v3_display">Heltec Wireless Stick Lite V3 with Display</option>
+                                        <option value="heltec_wireless_tracker">Heltec Wireless Tracker</option>
+                                        <option value="heltec-lora32-v2">Heltec LoRa32 V2</option>
+                                        <option value="heltec_ht-ct62">Heltec HT-CT62</option>
+                                        <option value="heltec_wireless_paper">Heltec Wireless Paper</option>
+                                    </optgroup>
+                                    <optgroup label="QRP Labs">
+                                        <option value="QRPLabs_LightGateway_1_0">LightGateway 1.0</option>
+                                    </optgroup>
+                                    <optgroup label="RAK Wireless">
+                                        <option value="RAK_WisBlock_4631_Digirepeater">RAK4631 + RAK19007/19003</option>
+                                    </optgroup> 
+                                    <optgroup label="Other DIY ESP32 Based Boards">
+                                        <option value="ESP32_DIY_LoRa">ESP32 + LoRa SX1278</option>
+                                        <option value="ESP32_DIY_LoRa_915">ESP32 + LoRa SX1276 (915MHz)</option>
+                                        <option value="ESP32_DIY_1W_LoRa">ESP32 + E22 Ebyte 400M30S</option>
+                                        <option value="ESP32_DIY_1W_LoRa_915">ESP32 + E22 Ebyte 900M30S (915MHz)</option>
+                                        <option value="ESP32_DIY_1W_LoRa_LLCC68">ESP32 + E220 Ebyte 400M30S(LLCC68)</option>
+                                        <option value="ESP32_DIY_LoRa_A7670">ESP32 + A7670 Modem + LoRa SX1278</option>
+                                        <option value="ESP32_DIY_LoRa_A7670_915">ESP32 + A7670 Modem + LoRa SX1276 (915MHz)</option>
+                                        <option value="esp32c3_DIY_1W_LoRa">ESP32C3 + E22 Ebyte 400M30S</option>
+                                        <option value="esp32c3_DIY_1W_LoRa_915">ESP32C# + E22 Ebyte 900M30S (915MHz)</option>
                                         <option>WEMOS-D1-R32-RA02</option>
                                         <option>WEMOS-LOLIN32-OLED-DIY</option>
                                         <option>WEMOS_S2_MINI_DIY_LoRa</option>
+                                        <option value="ESP32_DIY_1W_LoRa_Mesh_V1_2">ESP32 LoRa Mesh Board V1.2</option>
                                         <option value="OE5HWM_MeshCom">OE5HWM Board for MeshCom</option>
-                                        <option>ESP32_C3_OctopusLab_LoRa</option>
-                                        <option value="QRPLabs_LightGateway_1_0">QRP Labs LightGateway 1.0</option>
-                                    </optgroup>
-                                    <optgroup label="NRF52840 Based Boards">
-                                        <option>RAK_WisBlock_4631_Digirepeater</option>
-                                    </optgroup>                                    
+                                        <option value="ESP32_C3_OctopusLab_LoRa</option>
+                                    </optgroup>                        
                                 </select>
                             </div>
                             <div class="mb-3">
