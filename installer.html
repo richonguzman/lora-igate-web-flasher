@@ -99,6 +99,9 @@
                                     <optgroup label="RAK Wireless">
                                         <option value="RAK_WisBlock_4631_Digipeater">RAK4631 + RAK19007/19003</option>
                                     </optgroup> 
+                                    <optgroup label="Waveshare">
+                                        <option value="Waveshare_RP2040_LoRa_Digipeater">Waveshare RP2040 LoRa</option>
+                                    </optgroup>
                                     <optgroup label="Other DIY ESP32 Based Boards">
                                         <option value="ESP32_DIY_LoRa">ESP32 + LoRa SX1278</option>
                                         <option value="ESP32_DIY_LoRa_915">ESP32 + LoRa SX1276 (915MHz)</option>
@@ -220,6 +223,10 @@
 
                 if (board === "RAK_WisBlock_4631_Digipeater") {
                     window.location.href = "https://github.com/richonguzman/LoRa_APRS_NRF52840/tree/main/LoRa_APRS_RAK4631_Digipeater";
+                    return;
+                }
+                if (board === "Waveshare_RP2040_LoRa_Digipeater") {
+                    window.location.href = "https://github.com/richonguzman/LoRa_APRS_RP2040/tree/main/LoRa_APRS_Waveshare_RP2040_Digipeater";
                     return;
                 }
 
