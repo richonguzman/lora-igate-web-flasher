@@ -1,7 +1,7 @@
 {
     "name": "ttgo-lora32-v21 ota.json",
     "version": "V3.1.2",
-    "new_install_prompt_erase": false,
+    "new_install_prompt_erase": true,
     "builds": [
         {
             "chipFamily": "ESP32",
