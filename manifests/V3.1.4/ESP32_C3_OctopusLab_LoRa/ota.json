@@ -1,0 +1,70 @@
+{
+    "name": "ESP32_C3_OctopusLab_LoRa ota.json",
+    "version": "V3.1.4",
+    "new_install_prompt_erase": true,
+    "builds": [
+        {
+            "chipFamily": "ESP32",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V3.1.4/ESP32_C3_OctopusLab_LoRa/ota_update.bin",
+                    "offset": 65536
+                }
+            ]
+        },
+        {
+            "chipFamily": "ESP32-C2",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V3.1.4/ESP32_C3_OctopusLab_LoRa/ota_update.bin",
+                    "offset": 65536
+                }
+            ]
+        },
+        {
+            "chipFamily": "ESP32-C3",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V3.1.4/ESP32_C3_OctopusLab_LoRa/ota_update.bin",
+                    "offset": 65536
+                }
+            ]
+        },
+        {
+            "chipFamily": "ESP32-C6",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V3.1.4/ESP32_C3_OctopusLab_LoRa/ota_update.bin",
+                    "offset": 65536
+                }
+            ]
+        },
+        {
+            "chipFamily": "ESP32-S2",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V3.1.4/ESP32_C3_OctopusLab_LoRa/ota_update.bin",
+                    "offset": 65536
+                }
+            ]
+        },
+        {
+            "chipFamily": "ESP32-S3",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V3.1.4/ESP32_C3_OctopusLab_LoRa/ota_update.bin",
+                    "offset": 65536
+                }
+            ]
+        },
+        {
+            "chipFamily": "ESP8266",
+            "parts": [
+                {
+                    "path": "/lora-igate-web-flasher/bins/V3.1.4/ESP32_C3_OctopusLab_LoRa/ota_update.bin",
+                    "offset": 65536
+                }
+            ]
+        }
+    ]
+}
