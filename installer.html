@@ -101,6 +101,7 @@
                                         <option value="heltec_wireless_stick_lite_v3">Heltec Wireless Stick Lite V3/3.2</option>
                                         <option value="heltec_wireless_stick_lite_v3_display">Heltec Wireless Stick Lite V3/3.2) with Display</option>
                                         <option value="heltec_wireless_tracker">Heltec Wireless Tracker</option>
+                                        <option value="Heltec_T114_Digipeater">NRF52840-> Heltec MeshNode T114 (Digipeater)</option>
                                         <option value="heltec_wireless_paper_v1">Heltec Wireless Paper V1</option>
                                         <option value="heltec_wireless_paper_v1_2">Heltec Wireless Paper V1.2</option>
                                         <option value="heltec_vision_master_e290">Heltec Vision Master E290</option>
@@ -108,27 +109,32 @@
                                         <option value="heltec-lora32-v2_915">Heltec LoRa32 V2 (915MHz)</option>
                                         <option value="heltec_wireless_bridge">Heltec Wireless Bridge</option>
                                         <option value="heltec_ht-ct62">Heltec HT-CT62</option>
-                                        <option value="Heltec_T114_Digipeater">Heltec MeshNode T114 (Digipeater)</option>
                                     </optgroup>
                                     <optgroup label="Seeed Studio">
                                         <option value="XIAO_ESP32S3_WIO_SX1262">XIAO ESP32S3 + WIO SX1262</option>
                                     </optgroup>
                                     <optgroup label="RAK Wireless">
-                                        <option value="RAK_WisBlock_4631_Digipeater">RAK4631 + RAK19007/19003 (Digipeater)</option>
+                                        <option value="RAK_WisBlock_4631_Digipeater">NRF52840-> RAK4631 + RAK19007/19003 (Digipeater)</option>
                                     </optgroup>
                                     <optgroup label="QRP Labs">
                                         <option value="QRPLabs_LightGateway_Plus_1_0">LightGateway Plus 1.0</option>
                                         <option value="QRPLabs_LightGateway_1_0">LightGateway 1.0</option>
                                     </optgroup>                                    
                                     <optgroup label="Waveshare">
-                                        <option value="Waveshare_RP2040_LoRa_Digipeater">Waveshare RP2040 LoRa (Digipeater)</option>
+                                        <option value="Waveshare_RP2040_LoRa_Digipeater">RP2040-> Waveshare RP2040 LoRa (Digipeater)</option>
+                                        <option value="Waveshare_RP2040_Pico_LoRa_SX1262_Digipeater">RP2040-> Waveshare Pico LoRa SX1262 (Digipeater)</option>
                                     </optgroup>
                                     <optgroup label="Other DIY ESP32 Based Boards">
-                                        <option value="Faketec_V3_Digipeater">Faketec V3 (Digipeater)</option>
+                                        <option value="Faketec_Digipeater">NRF52840-> Faketec V3/4/5 (Digipeater)</option>
+                                        <option value="Faketec_1W_400M30S_Digipeater">NRF52840-> Faketec 1W 400M30S (Digipeater)</option>
+                                        <option value="MeshGate_Lite_V1_Digipeater">NRF52840-> MeshGate Lite V1 (Digipeater)</option>
                                         <option value="TROY_LoRa_APRS">TROY LoRa APRS</option>
                                         <option value="ESP32_DIY_1W_LoRa_Mesh_V1_2">ESP32 LoRa Mesh Board V1.2</option>
                                         <option value="ESP32_C3_OctopusLab_LoRa">ESP32C3 OctopusLab</option>
                                         <option value="ESP32_9M2IBR_1W_LoRa_GPS">9M2IBR ESP32 + E22 Ebyte 400M30S (433MHz) + GPS</option>
+                                        <option value="BI9BCQ_1W_400M30S_Digipeater">NRF52840-> BI9BCQ 1W 400M30S (Digipeater)</option>
+                                        <option value="SUI_400M22S_Digipeater">NRF52840-> SUI 400M22S (Digipeater)</option>
+                                        <option value="XIAOWA_PCB_1W_400M30S_Digipeater">NRF52840-> XIAOWA PCB 1W 400M30S (Digipeater)</option>                                        
                                         <option value="OE5HWM_MeshCom">OE5HWM Board for MeshCom</option>
                                         <option value="ESP32_DIY_LoRa">ESP32 + LoRa SX1278 (433MHz)</option>
                                         <option value="ESP32_DIY_LoRa_915">ESP32 + LoRa SX1276 (915MHz)</option>
@@ -141,7 +147,8 @@
                                         <option value="esp32c3_DIY_1W_LoRa_915">ESP32C3 SuperMini + E22 Ebyte 900M30S (915MHz)</option>
                                         <option value="WEMOS-D1-R32-RA02">WEMOS D1 + LoRa SX1278 (433MHz)</option>
                                         <option value="WEMOS-LOLIN32-OLED-DIY">WEMOS LOLIN32 OLED + LoRa SX1278 (433MHz)</option>
-                                        <option value="WEMOS_S2_MINI_DIY_LoRa">WEMOS S2 Mini + LoRa SX1278 (433MHz)</option>                                        
+                                        <option value="WEMOS_S2_MINI_DIY_LoRa">WEMOS S2 Mini + LoRa SX1278 (433MHz)</option>
+                                        <option value="RP2040_CoreBoard_SX1278_Digipeater">RP2040-> CoreBoard + LoRa SX1278 Digipeater (433MHz)</option> 
                                     </optgroup>                        
                                 </select>
                             </div>
@@ -248,18 +255,24 @@
                 const board = document.getElementById("board").value;
                 const type = document.getElementById("type").value;
 
-                if (board === "RAK_WisBlock_4631_Digipeater") {
-                    window.location.href = "https://github.com/richonguzman/LoRa_APRS_NRF52840/tree/main/LoRa_APRS_RAK4631_Digipeater";
-                    return;
+                const boardLinks = {
+                    "RAK_WisBlock_4631_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html",
+                    "Heltec_T114_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html",
+                    "Faketec_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html",
+                    "Faketec_1W_400M30S_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html",
+                    "MeshGate_Lite_V1_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html",
+                    "BI9BCQ_1W_400M30S_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html",
+                    "SUI_400M22S_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html",
+                    "XIAOWA_PCB_1W_400M30S_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html",
+                    "Waveshare_RP2040_LoRa_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html",
+                    "Waveshare_RP2040_Pico_LoRa_SX1262_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html",
+                    "RP2040_CoreBoard_SX1278_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html"
+                };
+                
+                if (boardLinks[board]) {
+                    window.location.href = boardLinks[board];
                 }
-                if (board === "Heltec_T114_Digipeater") {
-                    window.location.href = "https://github.com/richonguzman/LoRa_APRS_NRF52840/tree/main/LoRa_APRS_HELTEC_MeshNode_T114_Digipeater";
-                    return;
-                }
-                if (board === "Faketec_V3_Digipeater") {
-                    window.location.href = "https://github.com/richonguzman/LoRa_APRS_NRF52840/tree/main/LoRa_APRS_FAKETEC_Digipeater";
-                    return;
-                }
+
                 if (board === "Waveshare_RP2040_LoRa_Digipeater") {
                     window.location.href = "https://github.com/richonguzman/LoRa_APRS_RP2040/tree/main/LoRa_APRS_Waveshare_RP2040_Digipeater";
                     return;
