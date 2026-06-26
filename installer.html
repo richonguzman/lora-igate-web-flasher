@@ -20,45 +20,137 @@
             href="https://bootswatch.com/_assets/css/custom.min.css"
         />
         <title>CA2RXU LoRa iGate Firmware Flasher</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
         <style>
+            /* Theme tokens borrowed from the iGate web GUI (data_embed/index.html) */
+            :root {
+                --bg: #121417;
+                --panel: #1c2025;
+                --panel-2: #22272e;
+                --border: #2c333b;
+                --accent: #e23b3b;
+                --accent-soft: rgba(226, 59, 59, 0.14);
+                --text: #e6edf3;
+                --text-dim: #8b949e;
+            }
             body {
-                background-color: #212121; /* Dark mode background color */
-                color: #ffffff; /* Default text color for dark mode */
-                margin: 0; /* elimina márgenes del body */
+                background-color: var(--bg);
+                color: var(--text);
+                font-family: "Inter", system-ui, -apple-system, "Segoe UI",
+                    Roboto, sans-serif;
+                margin: 0;
                 padding: 0;
+                min-height: 100vh;
             }
             .container {
-                margin-top: 10px; /* ajusta a tu gusto */
+                margin-top: 0;
+                padding-top: 32px;
+                padding-bottom: 32px;
             }
             .card {
-                background-color: #545454; /* Dark gray background for card */
-                color: #ffffff; /* White text color for readability */
+                background-color: var(--panel);
+                color: var(--text);
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+                overflow: hidden;
+                max-width: 540px;
+                margin: 0 auto;
             }
-            .card-footer {
-                background-color: #3f3f3f; /* Dark gray background for card footer */
+            .card-body {
+                padding: 32px 34px;
+            }
+            h1.card-title {
+                font-weight: 700;
+                font-size: 2rem;
+                letter-spacing: 0.04em;
+                color: var(--accent);
+                margin-bottom: 4px;
+            }
+            h3.card-title {
+                font-weight: 600;
+                font-size: 1.1rem;
+                color: var(--text-dim);
+                margin-bottom: 24px;
+            }
+            .form-label {
+                display: block;
+                text-align: left;
+                color: var(--text-dim);
+                font-weight: 500;
+                font-size: 0.9rem;
+            }
+            .form-select {
+                background-color: var(--bg);
+                color: var(--text);
+                border: 1px solid var(--border);
+                border-radius: 10px;
+                padding: 0.6rem 0.9rem;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23e23b3b' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 0.8rem center;
+                background-size: 15px 12px;
+            }
+            .form-select:focus {
+                background-color: var(--bg);
+                color: var(--text);
+                border-color: var(--accent);
+                box-shadow: 0 0 0 0.18rem var(--accent-soft);
+            }
+            .form-select optgroup,
+            .form-select option {
+                background-color: var(--panel-2);
+                color: var(--text);
+            }
+            hr {
+                border-color: var(--border);
+                opacity: 0.6;
             }
             .btn-success {
-                background-color: #4caf50; /* Green button for contrast */
-                border-color: #4caf50;
+                background-color: #2ea043;
+                border-color: #2ea043;
+                color: #fff;
+                font-weight: 600;
+                border-radius: 10px;
+                padding: 0.7rem 1.6rem;
+                transition: all 0.15s ease;
+            }
+            .btn-success:hover,
+            .btn-success:focus {
+                background-color: #278d3a;
+                border-color: #278d3a;
+                color: #fff;
+                transform: translateY(-1px);
             }
             .alert-danger {
-                background-color: #ff5252; /* Red background for alert */
-                border-color: #ff5252;
-                color: #ffffff; /* White text color for alert */
+                background-color: var(--accent-soft);
+                border: 1px solid var(--accent);
+                color: var(--text);
+                border-radius: 10px;
+            }
+            .card-footer {
+                background-color: var(--panel-2);
+                border-top: 1px solid var(--border);
+                color: var(--text-dim);
+                padding: 18px;
             }
             /* Hyperlink styles */
             a {
-                color: #00CED1; /* Cyan for unvisited links */
-                text-decoration: none; /* Remove underline */
+                color: var(--accent);
+                text-decoration: none;
+                font-weight: 500;
             }
-            a:hover, a:focus {
-                color: #FFD700; /* Gold for hover/active links */
+            a:hover,
+            a:focus {
+                color: #ff6b6b;
+                text-decoration: underline;
             }
             a:visited {
-                color: #FFA500; /* Orange for visited links */
-            }
-            a:active {
-                color: #FF4500; /* Orange Red for pressed links */
+                color: var(--accent);
             }
         </style>
     </head>
@@ -84,13 +176,13 @@
                                         <option value="ttgo-lora32-v21_915_GPS">LoRa32 V2.1/1.6.1 (915MHz) + GPS (DIY)</option>
                                         <option value="ttgo_lora32_t3s3_v1_2">LoRa32 T3S3 V1.2</option>
                                         <option value="ttgo-t-beam-v1_2">T-Beam V1.2 (433MHz)</option>
-                                        <option value="ttgo-t-beam-v1_2_915">T-Beam V1.2 (915MHz)</option>                                        
+                                        <option value="ttgo-t-beam-v1_2_915">T-Beam V1.2 (915MHz)</option>
                                         <option value="ttgo-t-beam-v1_2_SX1262">T-Beam V1.2 SX1262</option>
                                         <option value="ttgo_t_beam_s3_SUPREME_v3">T-Beam SUPREME V3</option>
                                         <option value="ttgo-t-beam-v1">T-Beam V1.0/1.1 (433MHz)</option>
                                         <option value="ttgo-t-beam-v1_915">T-Beam V1.0/1.1 (915MHz)</option>
                                         <option value="ttgo-t-beam-v1_SX1268">T-Beam V1.0/1.1 SX1268</option>
-                                        <option value="ttgo-t-beam-v1_SX1262">T-Beam V1.0/1.1 SX1262</option>                                        
+                                        <option value="ttgo-t-beam-v1_SX1262">T-Beam V1.0/1.1 SX1262</option>
                                         <option value="ttgo_t_deck_plus">T-Deck Plus</option>
                                         <option value="ttgo_t_deck_GPS">T-Deck + GPS (DIY)</option>
                                     </optgroup>
@@ -137,7 +229,7 @@
                                         <option value="ESP32_9M2IBR_1W_LoRa_GPS">9M2IBR ESP32 + E22 Ebyte 400M30S (433MHz) + GPS</option>
                                         <option value="BI9BCQ_1W_400M30S_Digipeater">NRF52840-> BI9BCQ 1W 400M30S (Digipeater)</option>
                                         <option value="SUI_400M22S_Digipeater">NRF52840-> SUI 400M22S (Digipeater)</option>
-                                        <option value="XIAOWA_PCB_1W_400M30S_Digipeater">NRF52840-> XIAOWA PCB 1W 400M30S (Digipeater)</option>                                        
+                                        <option value="XIAOWA_PCB_1W_400M30S_Digipeater">NRF52840-> XIAOWA PCB 1W 400M30S (Digipeater)</option>
                                         <option value="OE5HWM_MeshCom">OE5HWM Board for MeshCom</option>
                                         <option value="ESP32_DIY_LoRa">ESP32 + LoRa SX1278 (433MHz)</option>
                                         <option value="ESP32_DIY_LoRa_915">ESP32 + LoRa SX1276 (915MHz)</option>
@@ -151,8 +243,8 @@
                                         <option value="WEMOS-D1-R32-RA02">WEMOS D1 + LoRa SX1278 (433MHz)</option>
                                         <option value="WEMOS-LOLIN32-OLED-DIY">WEMOS LOLIN32 OLED + LoRa SX1278 (433MHz)</option>
                                         <option value="WEMOS_S2_MINI_DIY_LoRa">WEMOS S2 Mini + LoRa SX1278 (433MHz)</option>
-                                        <option value="RP2040_CoreBoard_SX1278_Digipeater">RP2040-> CoreBoard + LoRa SX1278 Digipeater (433MHz)</option> 
-                                    </optgroup>                        
+                                        <option value="RP2040_CoreBoard_SX1278_Digipeater">RP2040-> CoreBoard + LoRa SX1278 Digipeater (433MHz)</option>
+                                    </optgroup>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -184,7 +276,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="type" class="form-label"
-                                    >Type</label
+                                    >Flashing Type</label
                                 >
                                 <select id="type" class="form-select">
                                     <option value="factory">
@@ -197,7 +289,7 @@
                                     </option>
                                 </select>
                             </div>
-                            <span><a href="https://drive.google.com/file/d/1Hff_Szd7ks8RC7_RiV6POxPJlclbO05M/view?usp=sharing" style="font-weight: bold;">iGate/Digipeater Config Manual</a>  |  <a href="https://richonguzman.github.io/lora-tracker-web-flasher/installer.html" style="font-weight: bold;">LoRa APRS Tracker WebFlasher</a></span>
+                            <span><a href="https://drive.google.com/file/d/1Hff_Szd7ks8RC7_RiV6POxPJlclbO05M/view?usp=sharing" style="font-weight: bold;">iGate/Digi Manual</a>  |  <a href="https://richonguzman.github.io/lora-tracker-web-flasher/installer.html" style="font-weight: bold;">Tracker WebFlasher</a></span>
                             <hr>
                             <div class="mb-4">
                                 <esp-web-install-button
@@ -221,20 +313,20 @@
                             </div>
                         </div>
                         <div class="card-footer text-center">
-                            &copy; 2025 CA2RXU
+                            &copy; 2026 CA2RXU
                             <br />
                             <a href="http://paypal.me/richonguzman" target="_blank">
-                                <img 
+                                <img
                                     src="./img/paypalme.png"
                                     alt="PayPal.Me"
                                     width="200px;">
                             </a>
                             |
                             <a href="https://github.com/sponsors/richonguzman" target="_blank">
-                                <img 
+                                <img
                                     src="./img/github-sponsors.png"
                                     alt="Github Sponsors"
-                                    width="200px;">                                
+                                    width="200px;">
                             </a>
                         </div>
                     </div>
@@ -272,7 +364,7 @@
                     "Waveshare_RP2040_Pico_LoRa_SX1262_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html",
                     "RP2040_CoreBoard_SX1278_Digipeater": "https://richonguzman.github.io/nrf52840-web-config/index.html"
                 };
-                
+
                 if (boardLinks[board]) {
                     window.location.href = boardLinks[board];
                 }
