@@ -179,6 +179,7 @@
                                         <option value="ttgo-t-beam-v1_2_915">T-Beam V1.2 (915MHz)</option>
                                         <option value="ttgo-t-beam-v1_2_SX1262">T-Beam V1.2 SX1262</option>
                                         <option value="ttgo_t_beam_s3_SUPREME_v3">T-Beam SUPREME V3</option>
+                                        <option value="ttgo-t-beam-1W">T-Beam 1W</option>
                                         <option value="ttgo-t-beam-v1">T-Beam V1.0/1.1 (433MHz)</option>
                                         <option value="ttgo-t-beam-v1_915">T-Beam V1.0/1.1 (915MHz)</option>
                                         <option value="ttgo-t-beam-v1_SX1268">T-Beam V1.0/1.1 SX1268</option>
@@ -258,6 +259,7 @@
                                 >
                                 <select id="version" class="form-select">
                                     <optgroup label="Available">
+                                        <option value="V4.0.4">V4.0.4 (14 October 2026)</option>
                                         <option value="V4.0.3">V4.0.3 (05 October 2026)</option>
                                         <option value="V4.0.2">V4.0.2 (30 September 2026)</option>
                                         <option value="V4.0.1">V4.0.1 (23 September 2026)</option>
@@ -413,8 +415,17 @@
                 // Boards that only exist from V4.0.1 on
                 const newBoardsSinceV401 = ["RAK3312", "RAK3112", "ESP32_DIY_1W_LoRa_E32_400M30S", "ESP32C3_SuperMini_DIY_LoRa_SX1278"];
 
+                // Boards that only exist from V4.0.4 on
+                const newBoardsSinceV404 = ["ttgo-t-beam-1W"];
+
                 const versionOptions    = [...document.getElementById("version").options].map(o => o.value);
                 const isOlderThanV401   = versionOptions.indexOf(version) > versionOptions.indexOf("V4.0.1");   // list is newest first
+
+                if (versionOptions.indexOf(version) > versionOptions.indexOf("V4.0.4") && newBoardsSinceV404.includes(board)) {
+                    alert("This board is available from firmware V4.0.4 onwards.");
+                    document.getElementById("version").value = "V4.0.4";
+                    return reload();
+                }
 
                 if (isOlderThanV401 && newBoardsSinceV401.includes(board)) {
                     alert("This board is available from firmware V4.0.1 onwards.");
